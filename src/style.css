@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Music&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    position: relative;
+}
+
+.header {
+    width: 100vw;
+    height: 103px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(26, 26, 26, 0.65);
+    position: absolute;
+    padding-left: 140px;
+    padding-right: 140px;
+    align-items: center;
+}
+
+.header__logo-inner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 211px;
+    height: 47px;
+}
+
+.header__logo {
+    color: rgba(247, 156, 27, 1);
+    font-size: 43px;
+    font-weight: 600;
+}
+
+.header__logo-desc {
+    color: rgba(246, 246, 246, 0.5);
+    font-size: 12px;
+    font-weight: 300px;
+}
+
+.header__navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    justify-content: space-between;
+    width: 431px;
+}
+
+.header__item {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-weight: 300px;
+    size: 16px;
+}
+
+.header__item--active {
+    font-weight: bold;
+}
+
+.header__phone {
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    font-weight: 500px;
+    text-align: center;
+    justify-content: space-between;
+    font-weight: bold;
+    padding-left: 164px;
+    padding-right: 0;
+}
+
+.button {
+    color: rgba(247, 156, 27, 1);
+    background-color: rgba(26, 26, 26, 0);
+    border: solid 1px;
+    width: 160px;
+    padding: 6px 22px 6px 22px;
+}
