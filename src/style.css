@@ -340,3 +340,63 @@ body {
     width: 100%;
     padding-bottom: 80px;
 }
+
+.section--kitchen-about {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 720px;
+}
+
+.kitchen-about__image {
+    width: 100%;
+    height: 100vh;
+    max-height: 720px;
+    background: url('image/1cc6c715ea3449d37ffcfa365dcceb13.jpeg') center center no-repeat;
+    background-size: cover;
+}
+
+.kitchen-about__content {
+    width: 100%;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 140px;
+    background-color: rgba(235, 235, 235, 1);
+}
+
+.kitchen-about__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: left;
+    max-width: 360px;
+    padding-bottom: 40px;
+}
+
+.kitchen-about__header {
+    text-align: right;
+    font-size: 40px;
+    padding-bottom: 32px;
+}
+
+.kitchen-about__paragraph {
+    width: 100%;
+    text-align: right;
+    font-size: 16px;
+    line-height: 26px;
+    padding-bottom: 14px;
+}
+
+.kitchen-about__button {
+    padding-right: 140px;
+    padding: 10px;
+    background-color: #F79C1B;
+    color: rgba(246, 246, 246, 1);
+    border: none;
+    width: 230px;
+    height: 50px;
+    font-size: 16px;
+}
