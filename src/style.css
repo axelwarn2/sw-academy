@@ -735,7 +735,7 @@ body {
     justify-content: center;
 }
 
-.hero__title-auth {
+.main-auth__title {
     font-size: 40px;
     padding-bottom: 71px;
     padding-top: 52px;
@@ -754,7 +754,7 @@ body {
     flex-direction: column;
 }
 
-.hero__content-auth {
+.main-auth__content{
     background-color: rgba(255, 255, 255, 0.89);
     height: 548px;
     width: 585px;
