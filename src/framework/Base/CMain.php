@@ -6,10 +6,14 @@ class CMain
 {
     public function includeComponent(string $component, string $template = '.default', array $arParams = []): void
     {
+        ob_start();
         include $this->getComponentPath($component) . "/component.php";
-        $style = file_get_contents($this->getTemplatePath($component, $template) . "/style.css");
+        $styles = file_get_contents($this->getTemplatePath($component, $template) . "/style.css");
         echo "<style>$styles</style>";
         include $this->getTemplatePath($component, $template) . "/template.php";
+        $content = ob_get_clean();
+
+        echo $content;
     }
 
     protected function getComponentPath(string $component): string

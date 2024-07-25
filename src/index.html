@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Мебель</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
-            <div class="header__logo-inner">
-                <span class="header__logo">МЕБЕЛЬ</span>
-                <p class="header__logo-desc">Центр мебельных технологий</p>
-            </div>
-            <nav class="header__navbar">
-                <a href="#" class="header__item">Шкафы-купе</a>
-                <a href="#" class="header__item">Торговая мебель</a>
-                <a href="#" class="header__item header__item--active">Кухни</a>
-                <a href="#" class="header__item">Контакты</a>
-            </nav>
-            <div class="header__content">
-                <p class="content__number">+7 3452 00-00-00</p>
-                <button class="button header__button header__button--secondary">Оставить заявку</button>
-            </div>
+        <div class="header__logo-inner">
+            <span class="header__logo">МЕБЕЛЬ</span>
+            <p class="header__logo-desc">Центр мебельных технологий</p>
+        </div>
+nacretion marked this conversation as resolved.
+        <nav class="header__navbar">
+            <a href="#" class="header__item">Шкафы-купе</a>
+            <a href="#" class="header__item">Торговая мебель</a>
+            <a href="#" class="header__item header__item_active">Кухни</a>
+            <a href="#" class="header__item">Контакты</a>
+        </nav>
+        <div class="header__content">
+            <p class="content__number">+7 3452 00-00-00</p>
+            <button class="button header__button header__button_secondary">Оставить заявку</button>
+        </div>
+        <div class="header__image_mobile"><img src="image/image 8.svg" alt="" class="image_mobile"></div>
     </header>
 
     <main class="main">
@@ -30,9 +33,8 @@
                 <h1 class="hero__title">ЗАКАЗЫВАЙТЕ КУХНЮ ОТ ПРОИЗВОДИТЕЛЯ</h1>
                 <p class="hero__subtitle">Высокое качество, профессиональный подход и креативные решения</p>
                 <p class="hero__location">Работаем по Тюмени и Тюменской области</p>
-
             </div>
-            <button class="button hero__button hero__button--secondary">Оставить заявку</button>
+            <button class="button hero__button hero__button_secondary">Оставить заявку</button>
         </section>
 
         <section class="section section__kitchen-types">
@@ -55,7 +57,7 @@
                 </div>
             </div>
 
-            <h2 class="section__title section__title--style">Стили кухонь</h2>
+            <h2 class="section__title section__title_style">Стили кухонь</h2>
             <div class="kitchen-styles">
                 <div class="kitchen-styles__item">
                     <img src="image/line1.jpeg" alt="Хайтек" class="kitchen-styles__image">
@@ -74,20 +76,20 @@
                 </div>
             </div>
             <div class="kitchen-styles__div">
-                <div class="kitchen-styles__item kitchen-styles__item--width">
-                    <img src="image/line1.jpeg" alt="Прованс" class="kitchen-styles__image kitchen-styles__image--width">
+                <div class="kitchen-styles__item kitchen-styles__item_width">
+                    <img src="image/line1.jpeg" alt="Прованс" class="kitchen-styles__image kitchen-styles__image_width">
                     <h4 class="kitchen-styles__name">Прованс</h4>
                     <p class="kitchen-styles__description">Этот стиль порадует истинного ценителя провинциального французского интерьера, привнеся нотки деревенского шарма, сохранив при этом изящность французского дома</p>
                 </div>
-                <div class="kitchen-styles__item kitchen-styles__item--width">
-                    <img src="image/japan.jpeg" alt="Японский стиль" class="kitchen-styles__image kitchen-styles__image--width">
+                <div class="kitchen-styles__item kitchen-styles__item_width">
+                    <img src="image/japan.jpeg" alt="Японский стиль" class="kitchen-styles__image kitchen-styles__image_width">
                     <h4 class="kitchen-styles__name">Японский стиль</h4>
                     <p class="kitchen-styles__description">Это разновидность этнических направлений в минимализме, в которой присутствуют безукоризненные цветовые комбинации и лаконичность форм в сочетании с нестандартными решениями в оформлении</p>
                 </div>
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="section form-section">
             <div class="form-section__text">
                 <h2 class="form-section__header">Оставьте заявку</h2>
                 <p class="form-section__paragraph">Наши специалисты свяжутся с вами в течение одного часа</p>
@@ -95,10 +97,10 @@
             <div class="form-section__form">
                 <form action="index.php" method="post" class="form-section__form-element">
                     <span class="form-section__input-wrapper">
-                        <input type="text" class="form-section__input form-section__input--name" placeholder="Имя">
+                        <input type="text" class="form-section__input form-section__input_name" placeholder="Имя">
                     </span>
                     <span class="form-section__input-wrapper">
-                        <input type="number" class="form-section__input form-section__input--phone" placeholder="Телефон">
+                        <input type="number" class="form-section__input form-section__input_phone" placeholder="Телефон">
                     </span>
                     <button class="form-section__button">Отправить</button>
                 </form>
@@ -148,7 +150,7 @@
             </div>
         </section>
 
-        <section class="section section--kitchen-about">
+        <section class="section section-kitchen-about">
             <div class="kitchen-about__image"></div>
             <div class="kitchen-about__content">
                 <div class="kitchen-about__text">
@@ -169,7 +171,7 @@
             </div>
         </section>
 
-        <section class="section section--delivery">
+        <section class="section section-delivery">
             <div class="delivery__content">
                 <div class="delivery__text">
                     <h2 class="delivery__header">Доставка</h2>
@@ -186,7 +188,7 @@
             <div class="delivery__image"></div>
         </section>
 
-        <section class="section section--production">
+        <section class="section section-production">
             <div class="production__image"></div>
             <div class="production__content">
                 <div class="production__text">
@@ -207,48 +209,56 @@
             </div>
         </section>
 
-        <section class="section section--offers">
+        <section class="section section-offers">
             <div class="offers__content">
                 <h2 class="offers__title">Что мы предлагаем</h2>
                 <div class="offers__list">
                     <div class="offers__item">
-                        <img src="image/task.jpg" alt="Сделаем по эскизу" class="offers__image">
+                        <img src="image/wish-list 1.svg" alt="Сделаем по эскизу" class="offers__image">
                         <h3 class="offers__header">Сделаем по эскизу</h3>
                         <p class="offers__description">Если у вас есть пожелания, изготовим кухню согласно вашим примерам</p>
                     </div>
 
                     <div class="offers__item">
-                        <img src="image/money.jpg" alt="Подстроимся под бюджет" class="offers__image">
+                        <img src="image/smartphone 1.svg" alt="Подстроимся под бюджет" class="offers__image">
                         <h3 class="offers__header">Подстроимся под бюджет</h3>
                         <p class="offers__description">Для  эскиза подберем материалы эконом, стандарт или премиум класса</p>
                     </div>
 
                     <div class="offers__item">
-                        <img src="image/guard.jpg" alt="Гарантия 5 лет" class="offers__image">
+                        <img src="image/shield 2 1.svg" alt="Гарантия 5 лет" class="offers__image">
                         <h3 class="offers__header">Гарантия 5 лет</h3>
                         <p class="offers__description">Наша компания занимается изготовлением мебели много лет, 
                             мы отвечаем за качество</p>
                     </div>
 
                     <div class="offers__item">
-                        <img src="image/hello.jpg" alt="Проект на этапе ремонта" class="offers__image">
+                        <img src="image/living-room 1.svg" alt="Проект на этапе ремонта" class="offers__image">
                         <h3 class="offers__header">Проект на этапе ремонта</h3>
                         <p class="offers__description">Предусмотрим все нюансы и дадим рекомендации
                             по расположению элементов кухни</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="footer__content">
-            <div class="footer__block footer__block--brand">
+            <div class="footer__block footer__block_brand">
                 <h2 class="footer__title">МЕБЕЛЬ</h2>
                 <p class="footer__subtitle">Центр мебельных технологий</p>
             </div>
 
-            <div class="footer__block footer__block--menu">
+            <div class="footer__block-mobile footer__block_auth-mobile">
+                Авторизоваться
+            </div>
+
+            <div class="footer__block footer__block_menu">
                 <p class="footer__header">Меню</p>
                 <div class="footer__menu">
                     <p class="footer__menu-item">Шкафы купе</p>
@@ -259,7 +269,7 @@
                 </div>
             </div>
 
-            <div class="footer__block footer__block--contacts">
+            <div class="footer__block footer__block_contacts">
                 <p class="footer__header">Контакты</p>
                 <div class="footer__contacts">
                     <p class="footer__contact-item">info@mebel.ru</p>
@@ -268,8 +278,8 @@
                 </div>
             </div>
 
-            <div class="footer__block footer__block--auth">
-                <button class="footer__auth-button">Авторизоваться</button>
+            <div class="footer__block footer__block_auth">
+                <a href="index2.html"><button class="footer__auth-button">Авторизоваться</button></a>
             </div>
         </div>
 
