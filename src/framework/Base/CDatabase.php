@@ -10,7 +10,7 @@ class CDatabase
     protected string $password = "";
     protected string $user = "";
 
-    protected \PDO $connection;
+    public \PDO $connection;
 
     public function __construct()
     {
@@ -35,9 +35,9 @@ class CDatabase
 
     protected function makeConnect()
     {
-        $dsn = "{$this->driver}:dbName={$this->dbName};host={$this->host}";
+        $dsn = "{$this->driver}:dbname={$this->dbName};host={$this->host}";
 
-        $connection = new \PDO(
+        $this->connection = new \PDO(
             $dsn,
             $this->user,
             $this->password,
