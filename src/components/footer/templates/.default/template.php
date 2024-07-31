@@ -22,7 +22,9 @@
             </div>
 
             <div class="footer__block footer__block_auth">
-                <a href="index2.html"><button class="footer__auth-button"><?= $arResult["footer_button"]?></button></a>
+                <a href="../../../../authentication.php"><button class="footer__auth-button">
+                    <?= $arResult["footer_button"]?></button>
+                </a>
             </div>
         </div>
 
