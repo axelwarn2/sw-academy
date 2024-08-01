@@ -2,8 +2,13 @@
 
 namespace Framework;
 
+use Framework\Traits\Singleton;
+use PDO;
+
 class CDatabase
 {
+    use Singleton;
+
     protected string $driver = "";
     protected string $host = "";
     protected string $dbName = "";
