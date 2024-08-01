@@ -6,21 +6,23 @@ use Framework\CDatabase;
 
 class Model
 {
-    protected static string $table;
+    protected array $data;
     protected array $fillable = [];
-    protected $db;
+    protected static string $table;
 
-    public function __construct()
+    public function __construct(array $data = [])
     {
-        $this->db = new CDatabase();
+        $this->data = $data;
     }
 
-    public function getById(int $id): array
+    public static function getById(int $id): self
     {
-        $query = "SELECT * FROM " . self::$table . " WHERE id = :id";
-        $stmt = $this->db->connection->prepare($query);
+        $query = "SELECT * FROM " . static::$table . " WHERE id = :id";
+        $stmt = CDatabase::getInstanse()->connection->prepare($query);
         $stmt->execute(['id' => $id]);
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
+        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        return new static($data);
     }
 
     public function getBy(array $criteria): array
@@ -35,12 +37,13 @@ class Model
         }
 
         $query .= implode(" AND ", $conditions);
-        $stmt = $this->db->connection->prepare($query);
+        $stmt = CDatabase::getInstanse()->connection->prepare($query);
         $stmt->execute($params);
+
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function create(array $data): bool
+    public static function create(array $data): self
     {
         $fields = array_keys($data);
         $placeholders = array_map(function ($field) {
@@ -48,21 +51,42 @@ class Model
         }, $fields);
         $query = "INSERT INTO " . static::$table . " (" . implode(',', $fields) . ") 
         VALUES (" . implode(',', $placeholders) . ")";
-        $stmt = $this->db->connection->prepare($query);
-        return $stmt->execute($data);
+        $stmt = CDatabase::getInstanse()->connection->prepare($query);
+        $res = $stmt->execute($data);
+
+        if (!$res) {
+            return null;
+        }
+
+        $data['id'] = CDatabase::getInstanse()->connection->lastInsertId();
+
+        return new static($data);
     }
 
-    public function update(int $id, array $data): bool
+    public static function update(int $id, array $data): bool
     {
         $fields = [];
+
         foreach ($data as $key => $value) {
             $fields[] = "{$key} = :{$key}";
         }
 
-        $query = "UPDATE " . self::$table . " SET " . implode(',', $fields) . " WHERE id = :id";
+        $query = "UPDATE " . static::$table . " SET " . implode(',', $fields) . " WHERE id = :id";
         $data['id'] = $id;
-        $stmt = $this->db->connection->prepare($query);
+        $stmt = CDatabase::getInstanse()->connection->prepare($query);
+
         return $stmt->execute($data);
+    }
+
+    public function save()
+    {
+        $id = $this->getId();
+
+        if ($id) {
+            return self::update($this->getId(), $this->data);
+        }
+
+        return self::create($this->data);
     }
 
     public function delete(int $id): bool
@@ -70,5 +94,30 @@ class Model
         $query = "DELETE FROM " . self::$table . " WHERE id = :id";
         $stmt = $this->db->connection->prepare($query);
         return $stmt->execute(['id' => $id]);
+    }
+
+    public function __call(string $name, array $args)
+    {
+        if (strpos($name, 'get') !== 0) {
+            return null;
+        }
+
+        $fieldName = strtolower(substr($name, 3));
+
+        return $this->data[$fieldName] ?? null;
+    }
+
+    public function __get($name)
+    {
+        return $this->data[$name] ?? null;
+    }
+
+    public function __set($name, $value)
+    {
+        if (!in_array($name, $this->fillable)) {
+            return;
+        }
+
+        $this->data[$name] = $value;
     }
 }
