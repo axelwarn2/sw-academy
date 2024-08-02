@@ -3,8 +3,9 @@
 namespace Framework\Models;
 
 use Framework\CDatabase;
+use Framework\Validators\ModelValidator;
 
-class Model
+abstract class Model
 {
     protected array $data;
     protected array $fillable = [];
@@ -25,7 +26,7 @@ class Model
         return new static($data);
     }
 
-    public function getBy(array $criteria): array
+    public static function getBy(array $criteria): array
     {
         $query = "SELECT * FROM " . static::$table . " WHERE ";
         $conditions = [];
@@ -39,12 +40,14 @@ class Model
         $query .= implode(" AND ", $conditions);
         $stmt = CDatabase::getInstanse()->connection->prepare($query);
         $stmt->execute($params);
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return new static($data);
     }
 
     public static function create(array $data): self
     {
+        // ModelValidator::validateCreate($data, static::$fillable);
         $fields = array_keys($data);
         $placeholders = array_map(function ($field) {
             return ":{$field}";
@@ -65,6 +68,7 @@ class Model
 
     public static function update(int $id, array $data): bool
     {
+        // ModelValidator::validateUpdate($data, static::$fillable);
         $fields = [];
 
         foreach ($data as $key => $value) {
@@ -89,10 +93,21 @@ class Model
         return self::create($this->data);
     }
 
-    public function delete(int $id): bool
+    public function delete(): bool
     {
-        $query = "DELETE FROM " . self::$table . " WHERE id = :id";
-        $stmt = $this->db->connection->prepare($query);
+        return static::deleteExec($this->getID());
+    }
+
+    public static function deleteIternal(int $id): bool
+    {
+        return static::deleteExec($id);
+    }
+
+    protected static function deleteExec(int $id): bool
+    {
+        $query = "DELETE FROM " . static::$table . " WHERE id = :id";
+        $stmt = CDatabase::getInstanse()->connection->prepare($query);
+
         return $stmt->execute(['id' => $id]);
     }
 
