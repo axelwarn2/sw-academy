@@ -15,7 +15,7 @@ class CDatabase
     protected string $password = "";
     protected string $user = "";
 
-    public \PDO $connection;
+    public readonly \PDO $connection;
 
     public function __construct()
     {
