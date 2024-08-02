@@ -1,26 +1,7 @@
 <?php
 
 include "framework/framework.php";
-// dd($CONFIG->getEnv("DB_USER"));
 
-// dd($USER->getBy([
-//     "name" => "Petya",
-//     "email" => "sobaka@mail.ru"
-// ]));
-
-// dd($USER->create([
-//     'name' => 'Petya',
-//     'email' => 'sobaka@mail.ru',
-//     'password' => '12345',
-// ]));
-
-// dd($USER->update(1, [
-//     'name' => 'Petya2',
-//     'email' => 'sobaka2@mail.ru',
-//     'password' => '1234512345',
-// ]));
-
-// dd($USER->delete(5));
 
 
 $navbarItems = [
@@ -268,61 +249,71 @@ $APPLICATION->setCSS([
     <title>Мебель</title>
 </head>
 <body>
-    <?php $APPLICATION->includeComponent("header", ".default", ["logo" => "МЕБЕЛЬ",
-    "desk" => "Центр мебельных технологий",
-    "navbar" => $navbarItems,
-    "number" => "+7 3452 00-00-00",
-    "header_button" => "Оставить заявку",
+    <?php $APPLICATION->includeComponent("header", ".default", [
+        "logo" => "МЕБЕЛЬ",
+        "desk" => "Центр мебельных технологий",
+        "navbar" => $navbarItems,
+        "number" => "+7 3452 00-00-00",
+        "header_button" => "Оставить заявку",
     ]);?>
 
-    <?php $APPLICATION->includeComponent("hero", ".default", ["hero_title" => "ЗАКАЗЫВАЙТЕ КУХНЮ ОТ ПРОИЗВОДИТЕЛЯ",
-    "hero_subtitle" => "Высокое качество, профессиональный подход и креативные решения",
-    "hero_location" => "Работаем по Тюмени и Тюменской области",
-    "hero_button" => "Оставить заявку",
+    <?php $APPLICATION->includeComponent("hero", ".default", [
+        "hero_title" => "ЗАКАЗЫВАЙТЕ КУХНЮ ОТ ПРОИЗВОДИТЕЛЯ",
+        "hero_subtitle" => "Высокое качество, профессиональный подход и креативные решения",
+        "hero_location" => "Работаем по Тюмени и Тюменской области",
+        "hero_button" => "Оставить заявку",
     ]);?>
 
-    <?php $APPLICATION->includeComponent("kitchen-type", ".default", ["view" => "Виды кухонь",
-    "div_type" => $kitchenTypeItems,
-    "style" => "Стили кухонь",
-    "div_style" => $kitchenStyleItems,
-    "div_style_width" => $kitchenStyleWidthItems,
+    <?php $APPLICATION->includeComponent("kitchen-type", ".default", [
+        "view" => "Виды кухонь",
+        "div_type" => $kitchenTypeItems,
+        "style" => "Стили кухонь",
+        "div_style" => $kitchenStyleItems,
+        "div_style_width" => $kitchenStyleWidthItems,
     ]);?>
 
-    <?php $APPLICATION->includeComponent("form", ".default", ["form_title" => "Оставьте заявку",
-    "form_subtitle" => "Наши специалисты свяжутся с вами в течение одного часа",
-    "form_button" => "Отправить",
+    <?php $APPLICATION->includeComponent("form", ".default", [
+        "form_title" => "Оставьте заявку",
+        "form_subtitle" => "Наши специалисты свяжутся с вами в течение одного часа",
+        "form_button" => "Отправить",
     ]);?>
 
-    <?php $APPLICATION->includeComponent("kitchen-fasad", ".default", ["fasad" => "Материал фасада кухонь",
-    "div_fasad" => $kitchenFasadItems,
+    <?php $APPLICATION->includeComponent("kitchen-fasad", ".default", [
+        "fasad" => "Материал фасада кухонь",
+        "div_fasad" => $kitchenFasadItems,
     ]);?>
 
-    <?php $APPLICATION->includeComponent("about", ".default", ["about_title" => "О кухнях",
-    "about_subtitle" => $kitchenAboutItems,
-    "about_button" => "Заказать",
+    <?php $APPLICATION->includeComponent("about", ".default", [
+        "about_title" => "О кухнях",
+        "about_subtitle" => $kitchenAboutItems,
+        "about_button" => "Заказать",
     ]);?>
     
-    <?php $APPLICATION->includeComponent("delivery", ".default", ["delivery_title" => "Доставка",
-    "delivery_subtitle" => $kitchenDeliveryItems,
+    <?php $APPLICATION->includeComponent("delivery", ".default", [
+        "delivery_title" => "Доставка",
+        "delivery_subtitle" => $kitchenDeliveryItems,
     ]);?>
 
-    <?php $APPLICATION->includeComponent("production", ".default", ["production_title" => "У нас своё производство",
-    "production_subtitle" => $kitchenProductionItems,
-    "production_button" => "Записаться",
+    <?php $APPLICATION->includeComponent("production", ".default", [
+        "production_title" => "У нас своё производство",
+        "production_subtitle" => $kitchenProductionItems,
+        "production_button" => "Записаться",
     ]);?>
 
-    <?php $APPLICATION->includeComponent("offer", ".default", ["offers" => "Что мы предлагаем",
-    "div_offers" => $kitchenOfferItems,
+    <?php $APPLICATION->includeComponent("offer", ".default", [
+        "offers" => "Что мы предлагаем",
+        "div_offers" => $kitchenOfferItems,
     ]);?>
     
-    <?php $APPLICATION->includeComponent("footer", ".default", ["foot_title" => "МЕБЕЛЬ",
-    "foot_subtitle" => "Центр мебельных технологий",
-    "foot_button" => "Авторизоваться",
-    "menuname" => "Меню",
-    "contactname" => "Контакты",
-    "menu" => $footerMenuItems,
-    "contact" => $footerContactItems,
-    "bottom" => $footerBottomItems,
+    <?php $APPLICATION->includeComponent("footer", ".default", [
+        "foot_title" => "МЕБЕЛЬ",
+        "foot_subtitle" => "Центр мебельных технологий",
+        "foot_button" => "Авторизоваться",
+        "menuname" => "Меню",
+        "contactname" => "Контакты",
+        "menu" => $footerMenuItems,
+        "contact" => $footerContactItems,
+        "bottom" => $footerBottomItems,
     ]);?>
 </body>
 </html>
