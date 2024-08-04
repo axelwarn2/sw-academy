@@ -47,7 +47,6 @@ abstract class Model
 
     public static function create(array $data): self
     {
-        // ModelValidator::validateCreate($data, static::$fillable);
         $fields = array_keys($data);
         $placeholders = array_map(function ($field) {
             return ":{$field}";
@@ -68,7 +67,6 @@ abstract class Model
 
     public static function update(int $id, array $data): bool
     {
-        // ModelValidator::validateUpdate($data, static::$fillable);
         $fields = [];
 
         foreach ($data as $key => $value) {
@@ -82,7 +80,7 @@ abstract class Model
         return $stmt->execute($data);
     }
 
-    public function save()
+    public function save(): bool
     {
         $id = $this->getId();
 
