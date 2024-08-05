@@ -1,0 +1,43 @@
+.kitchen-fasad {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.kitchen-fasad__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 360px;
+    overflow: hidden;
+}
+
+.kitchen-fasad__image {
+    width: 100%;
+    height: 230px;
+    padding-bottom: 30px; 
+    z-index: -1;
+    transition: transform 1s ease;
+}
+
+.kitchen-fasad__item:hover .kitchen-fasad__image {
+    transform: scale(1.2);
+}
+
+.kitchen-fasad__name {
+    font-size: 18px;
+    padding-bottom: 4px;
+    width: 100%;
+}
+
+.kitchen-fasad__name:hover {
+    text-decoration: underline rgba(247, 156, 27, 1);
+}
+
+.kitchen-fasad__description {
+    font-size: 16px;
+    width: 100%;
+    padding-bottom: 80px;
+}
