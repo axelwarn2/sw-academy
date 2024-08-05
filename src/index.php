@@ -2,7 +2,24 @@
 
 include "framework/framework.php";
 
+// dd($USER->getBy([
+//     "name" => "Petya",
+//     "email" => "sobaka@mail.ru"
+// ]));
 
+// dd($USER->create([
+//     'name' => 'Petya',
+//     'email' => 'sobaka@mail.ru',
+//     'password' => '12345',
+// ]));
+
+// dd($USER->update(31, [
+//     'name' => 'Ян',
+//     'email' => 'sobaka2@mail.ru',
+//     'password' => '12345',
+// ]));
+
+// dd($USER->delete(5));
 
 $navbarItems = [
     [

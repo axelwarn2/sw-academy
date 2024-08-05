@@ -2,8 +2,6 @@
 
 namespace Framework\Validators;
 
-use Framework\Validators\Validator;
-
 class UserValidator extends Validator
 {
     protected static array $messages = [
@@ -16,13 +14,13 @@ class UserValidator extends Validator
     ];
 
     protected static array $rules = [
-        "name" => "/^[A-Za-zА-Яа-яЁё]{2, 15}$/",
+        "name" => "/^[A-Za-zА-Яа-яЁё]{2,15}$/",
         "email" => "/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i",
         "password" => "/^[A-Z][a-z]{3,9}[0-9]{3,9}$/",
     ];
 
     public static function validateUser(array $data): bool
     {
-        return parent::validate($data, $rules);
+        return parent::validate($data);
     }
 }

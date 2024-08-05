@@ -10,8 +10,6 @@ class CMain
     {
         ob_start();
         include $this->getComponentPath($component) . "/component.php";
-        // $styles = file_get_contents($this->getTemplatePath($component, $template) . "/style.css");
-        // echo "<style>$styles</style>";
         include $this->getTemplatePath($component, $template) . "/template.php";
         $content = ob_get_clean();
 
