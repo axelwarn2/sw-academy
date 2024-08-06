@@ -21,64 +21,41 @@ include "framework/framework.php";
 
 // dd($USER->delete(5));
 
-$navbarItems = [
-    [
-        "heading" => "Шкафы купе",
-        "link" => "#",
+$arResultHeader = [
+    "logo" => "МЕБЕЛЬ",
+    "desk" => "Центр мебельных технологий",
+    "navbar" => [
+        ["heading" => "Шкафы купе", "link" => "#", ],
+        ["heading" => "Торговая мебель", "link" => "#", ],
+        ["heading" => "Кухни", "link" => "#", ],
+        ["heading" => "Контакты","link" => "#", ],
     ],
-    [
-        "heading" => "Торговая мебель",
-        "link" => "#",
-    ],
-    [
-        "heading" => "Кухни",
-        "link" => "#",
-    ],
-    [
-        "heading" => "Контакты",
-        "link" => "#",
-    ],
+    "number" => "+7 3452 00-00-00",
+    "header_button" => "Оставить заявку",
 ];
 
-$footerMenuItems = [
-    [
-        "heading" => 'Шкафы купе',
+$arResultFooter = [
+    "foot_title" => "МЕБЕЛЬ",
+    "foot_subtitle" => "Центр мебельных технологий",
+    "foot_button" => "Авторизоваться",
+    "menuname" => "Меню",
+    "contactname" => "Контакты",
+    "menu" => [
+        ["heading" => 'Шкафы купе'],
+        ["heading" => "Кухни"],
+        ["heading" => "Торговое оборудование"],
+        ["heading" => "О компании"],
+        ["heading" => "Контакты"],
     ],
-    [
-        "heading" => "Кухни",
+    "contact" => [
+        ["heading" => 'info@mebel.ru'],
+        ["heading" => 'г.Тюмень, ул. Калинина, 22/1'],
+        ["heading" => '+7 (3452) 00-00-00'],
     ],
-    [
-        "heading" => "Торговое оборудование",
-    ],
-    [
-        "heading" => "О компании",
-    ],
-    [
-        "heading" => "Контакты",
-    ],
-];
-
-$footerContactItems = [
-    [
-        "heading" => 'info@mebel.ru',
-    ],
-    [
-        "heading" => 'г.Тюмень, ул. Калинина, 22/1',
-    ],
-    [
-        "heading" => '+7 (3452) 00-00-00',
-    ],
-];
-
-$footerBottomItems = [
-    [
-        "heading" => '2024 “Мебель.ру” Все права защищены.',
-    ],
-    [
-        "heading" => 'Политика конфиденциальности',
-    ],
-    [
-        "heading" => 'Разработка сайта интернет компания “SunWeb”',
+    "bottom" => [
+        ["heading" => '2024 “Мебель.ру” Все права защищены.'],
+        ["heading" => 'Политика конфиденциальности'],
+        ["heading" => 'Разработка сайта интернет компания “SunWeb”'],
     ],
 ];
 
@@ -266,13 +243,7 @@ $APPLICATION->setCSS([
     <title>Мебель</title>
 </head>
 <body>
-    <?php $APPLICATION->includeComponent("header", ".default", [
-        "logo" => "МЕБЕЛЬ",
-        "desk" => "Центр мебельных технологий",
-        "navbar" => $navbarItems,
-        "number" => "+7 3452 00-00-00",
-        "header_button" => "Оставить заявку",
-    ]);?>
+    <?php $APPLICATION->includeHeader($arResultHeader);?>
 
     <?php $APPLICATION->includeComponent("hero", ".default", [
         "hero_title" => "ЗАКАЗЫВАЙТЕ КУХНЮ ОТ ПРОИЗВОДИТЕЛЯ",
@@ -321,16 +292,7 @@ $APPLICATION->setCSS([
         "offers" => "Что мы предлагаем",
         "div_offers" => $kitchenOfferItems,
     ]);?>
-    
-    <?php $APPLICATION->includeComponent("footer", ".default", [
-        "foot_title" => "МЕБЕЛЬ",
-        "foot_subtitle" => "Центр мебельных технологий",
-        "foot_button" => "Авторизоваться",
-        "menuname" => "Меню",
-        "contactname" => "Контакты",
-        "menu" => $footerMenuItems,
-        "contact" => $footerContactItems,
-        "bottom" => $footerBottomItems,
-    ]);?>
+
+    <?php $APPLICATION->includeFooter($arResultFooter);?>
 </body>
 </html>
