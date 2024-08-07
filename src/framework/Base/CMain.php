@@ -2,23 +2,34 @@
 
 namespace Framework;
 
+use Framework\Config;
+
 class CMain
 {
     private $componentStyles = [];
+    private $mainTemplate;
 
-    public function includeComponent(string $component, string $template = '.default', array $arParams = []): void
+    public function __construct()
     {
-        ob_start();
-        include $this->getComponentPath($component) . "/component.php";
-        include $this->getTemplatePath($component, $template) . "/template.php";
-        $content = ob_get_clean();
+        $config = Config::getInstanse();
+        $this->mainTemplate = $config->getEnv("MAIN_TEMPLATE", "main");
+    }
 
-        echo $content;
+    public function includeComponent(string $component, string $template = '', array $arParams = []): void
+    {
+        $componentPath = $this->getComponentPath($component) . "component.php";
+        $templatePath = $this->getTemplatePath($component, $template) . "/template.php";
+
+        $this->render([$componentPath, $templatePath], $arParams);
     }
 
     protected function getComponentPath(string $component): string
     {
-        return $this->getDocumentRoot() . "/components/{$component}/";
+        $path = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/components/{$component}/";
+        if (!file_exists($path)) {
+            return $this->getDocumentRoot() . "/components/{$component}/";
+        }
+        return $path;
     }
 
     protected function getTemplatePath(string $component, string $template): string
@@ -31,11 +42,28 @@ class CMain
         return $_SERVER["DOCUMENT_ROOT"];
     }
 
+    public function includeHeader(array $arResultHeader): void
+    {
+        $headerPath = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/header.php";
+        $this->render([$headerPath], $arResultHeader);
+    }
+
+    public function includeFooter(array $arResultFooter): void
+    {
+        $footerPath = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/footer.php";
+        $this->render([$footerPath], $arResultFooter);
+    }
+
     public function setCSS(array $components)
     {
         foreach ($components as $component => $template) {
-            $stylePath = $this->getTemplatePath($component, $template) . '/style.css';
-            $stylePath = strstr($stylePath, "component");
+            $stylePath = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/";
+            if (!file_exists($stylePath . "css/style.css")) {
+                $stylePath .= "components/{$component}/templates/{$template}/style.css";
+            } else {
+                $stylePath .= "css/style.css";
+            }
+            $stylePath = strstr($stylePath, "templates");
             $this->componentStyles[] = $stylePath;
         }
     }
@@ -44,6 +72,18 @@ class CMain
     {
         foreach ($this->componentStyles as $stylePath) {
             echo "<link rel=\"stylesheet\" href=\"$stylePath\">";
+        }
+    }
+
+    public function render(array $templates, array $arParams = []): void
+    {
+        foreach ($templates as $template) {
+            if (file_exists($template)) {
+                ob_start();
+                include $template;
+                $content = ob_get_clean();
+                echo $content;
+            }
         }
     }
 }
