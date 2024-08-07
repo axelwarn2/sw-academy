@@ -17,20 +17,19 @@ class CMain
 
     public function includeComponent(string $component, string $template = '', array $arParams = []): void
     {
-        ob_start();
-        include $this->getComponentPath($component) . "/component.php";
-        include $this->getTemplatePath($component, $template) . "/template.php";
-        $content = ob_get_clean();
+        $componentPath = $this->getComponentPath($component) . "component.php";
+        $templatePath = $this->getTemplatePath($component, $template) . "/template.php";
 
-        echo $content;
+        $this->render([$componentPath, $templatePath], $arParams);
     }
 
     protected function getComponentPath(string $component): string
     {
-        if (!$this->getDocumentRoot() . "/templates/{$this->mainTemplate}/") {
+        $path = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/components/{$component}/";
+        if (!file_exists($path)) {
             return $this->getDocumentRoot() . "/components/{$component}/";
         }
-        return $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/components/{$component}/";
+        return $path;
     }
 
     protected function getTemplatePath(string $component, string $template): string
@@ -46,19 +45,13 @@ class CMain
     public function includeHeader(array $arResultHeader): void
     {
         $headerPath = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/header.php";
-        ob_start();
-        include $headerPath;
-        $content = ob_get_clean();
-        echo $content;
+        $this->render([$headerPath], $arResultHeader);
     }
 
     public function includeFooter(array $arResultFooter): void
     {
         $footerPath = $this->getDocumentRoot() . "/templates/{$this->mainTemplate}/footer.php";
-        ob_start();
-        include $footerPath;
-        $content = ob_get_clean();
-        echo $content;
+        $this->render([$footerPath], $arResultFooter);
     }
 
     public function setCSS(array $components)
@@ -79,6 +72,18 @@ class CMain
     {
         foreach ($this->componentStyles as $stylePath) {
             echo "<link rel=\"stylesheet\" href=\"$stylePath\">";
+        }
+    }
+
+    public function render(array $templates, array $arParams = []): void
+    {
+        foreach ($templates as $template) {
+            if (file_exists($template)) {
+                ob_start();
+                include $template;
+                $content = ob_get_clean();
+                echo $content;
+            }
         }
     }
 }
