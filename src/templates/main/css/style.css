@@ -138,7 +138,7 @@ body {
 }
 
 .hero__title {
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 46px;
 }
 
@@ -189,7 +189,9 @@ body {
 }
 
 .kitchen-types {
-    display: flex;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
 
@@ -229,11 +231,10 @@ body {
 }
 
 .kitchen-styles {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    flex-wrap: wrap;
 }
 
 .kitchen-styles__item {
@@ -277,11 +278,10 @@ body {
 }
 
 .kitchen-styles__div {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    width: 100%;
     padding-top: 106px;
     padding-left: 140px;
     padding-right: 140px;

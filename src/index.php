@@ -31,7 +31,7 @@ $arResultHeader = [
         ["heading" => "Контакты","link" => "#", ],
     ],
     "number" => "+7 3452 00-00-00",
-    "header_button" => "Оставить заявку",
+    "headerButton" => "Оставить заявку",
 ];
 
 $arResultFooter = [
@@ -241,6 +241,7 @@ $APPLICATION->setCSS([
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?=$APPLICATION->showCSS();?>
     <title>Мебель</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <?php $APPLICATION->includeHeader($arResultHeader);?>
