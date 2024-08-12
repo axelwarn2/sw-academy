@@ -1,6 +1,12 @@
+import AboutComponent from './AboutComponent.js';
+
+const params = JSON.parse(document.querySelector("#section-kitchen-about").dataset.about);
+
 Vue.createApp({
+    components: {
+        'about-component': AboutComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section-kitchen-about").dataset.params);
         return {
             ...params
         };

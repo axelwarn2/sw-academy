@@ -1,6 +1,12 @@
+import TypeComponent from './TypeComponent.js';
+
+const params = JSON.parse(document.querySelector("#section__kitchen-types").dataset.types);
+
 Vue.createApp({
+    components: {
+        'type-component': TypeComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section__kitchen-types").dataset.params);
         return {
             ...params
         };

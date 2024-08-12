@@ -1,8 +1,14 @@
+import ProductionComponent from './ProductionComponent.js';
+
+const params = JSON.parse(document.querySelector("#section-production").dataset.template);
+
 Vue.createApp({
+    components: {
+        'production-component': ProductionComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section-production").dataset.params);
         return {
-            ...params || ''
+            ...params
         };
     },
 }).mount('#section-production');

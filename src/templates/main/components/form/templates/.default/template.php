@@ -1,4 +1,4 @@
-    <section class="section form-section" id='form' data-params='<?= json_encode($arParams) ?>'>
+    <section class="section form-section" id='form' data-forms='<?= json_encode($arParams) ?>'>
         <div class="form-section__text">
             <h2 class="form-section__header">{{form_title}}</h2>
             <p class="form-section__paragraph">{{form_subtitle}}</p>
@@ -16,4 +16,4 @@
         </div>
     </section>
 
-<script src="/templates/main/js/form.js"></script>
+<script type="module" src="/templates/main/js/form.js"></script>

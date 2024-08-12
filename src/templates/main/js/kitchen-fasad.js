@@ -1,6 +1,11 @@
+import FasadComponent from './FasadComponent.js';
+
+const params = JSON.parse(document.querySelector("#section__kitchen-fasad").dataset.params);
 Vue.createApp({
+    components: {
+        'fasad-component': FasadComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section__kitchen-fasad").dataset.params);
         return {
             ...params
         };

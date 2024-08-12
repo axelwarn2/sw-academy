@@ -1,6 +1,12 @@
+import DeliveryComponent from './DeliveryComponent.js';
+
+const params = JSON.parse(document.querySelector("#section-delivery").dataset.delivery);
+
 Vue.createApp({
+    components: {
+        'delivery-component': DeliveryComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section-delivery").dataset.params);
         return {
             ...params
         };

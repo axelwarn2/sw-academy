@@ -1,8 +1,14 @@
+import OffersComponent from './OffersComponent.js';
+
+const params = JSON.parse(document.querySelector("#section-offers").dataset.offers);
+
 Vue.createApp({
+    components: {
+        'offers-component': OffersComponent,
+    },
     data() {
-        const params = JSON.parse(document.getElementById("section-offers").dataset.params);
         return {
-            ...params || ''
+            ...params
         };
     },
 }).mount('#section-offers');

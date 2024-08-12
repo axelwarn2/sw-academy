@@ -1,6 +1,7 @@
+const params = JSON.parse(document.querySelector("#form").dataset.forms);
+
 Vue.createApp({
     data() {
-        const params = JSON.parse(document.getElementById("form").dataset.params);
         return {
             ...params
         };
