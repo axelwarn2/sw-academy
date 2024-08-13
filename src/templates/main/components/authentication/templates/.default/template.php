@@ -1,4 +1,4 @@
-    <main class="main-auth">
+    <main class="main-auth" id="main-auth" data-params='<?= json_encode($arParams) ?>'>
             <section class="main-auth__hero">
                 <div class="hero__content-auth">
                     <h1 class="hero__title-auth"><?= $arResult["auth_header"] ?></h1>
@@ -14,3 +14,5 @@
                 </div>
             </section>
     </main>
+
+<script src="/templates/main/js/authentication.js"></script>
