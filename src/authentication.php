@@ -121,8 +121,9 @@ $APPLICATION->setCSS([
 <body>
     <?php $APPLICATION->includeHeader($arResultHeader);?>
 
-    <?php $APPLICATION->includeComponent("authentication", ".default", ["auth_title" => "Авторизация",
-    "auth_button" => "Войти",
+    <?php $APPLICATION->includeComponent("authentication", ".default", [
+        "auth_title" => "Авторизация",
+        "auth_button" => "Войти",
     ]);?>
 
     <?php $APPLICATION->includeFooter($arResultFooter);?>
