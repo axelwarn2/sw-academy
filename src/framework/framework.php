@@ -5,10 +5,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/../vendor/autoload.php";
 use Framework\CMain;
 use Framework\CUser;
 use Framework\Validators\UserValidator;
+use App\framework\Base\CApi;
 
 $APPLICATION = new CMain();
 $USER = new CUser();
 $VALIDATOR = new UserValidator();
-
-// $VALIDATOR->validateUser(["name" => "P", "email" => "sobaka@.ru", "password" => ""]);
-// dd($VALIDATOR->getErrors());
+$API = new CApi();
