@@ -227,7 +227,7 @@ body {
 
 .kitchen-types__description {
     font-size: 16px;
-    height: 52px;
+    height: 55px;
 }
 
 .kitchen-styles {
@@ -348,6 +348,7 @@ body {
     color: #F6F6F6;
     border: none;
     width: 260px;
+    height: 50px;
     font-size: 16px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }

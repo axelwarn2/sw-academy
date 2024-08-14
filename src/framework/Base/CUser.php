@@ -7,6 +7,6 @@ use Framework\Enums\Role;
 
 class CUser extends Model
 {
-    protected static string $table = "users";
-    protected array $fillable = ['name', 'email', 'password'];
+    protected static string $table = "usersVue";
+    protected array $fillable = ['name', 'tel'];
 }

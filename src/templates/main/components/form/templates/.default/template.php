@@ -4,16 +4,18 @@
             <p class="form-section__paragraph">{{form_subtitle}}</p>
         </div>
         <div class="form-section__form">
-            <form action="index.php" method="post" class="form-section__form-element">
+            <form @submit="submit" class="form-section__form-element">
                 <span class="form-section__input-wrapper">
-                    <input type="text" class="form-section__input form-section__input_name" placeholder="Имя">
+                    <input type="text" class="form-section__input form-section__input_name" v-model="form.name" placeholder="Имя">
                 </span>
                 <span class="form-section__input-wrapper">
-                    <input type="number" class="form-section__input form-section__input_phone" placeholder="Телефон">
+                    <input type="number" class="form-section__input form-section__input_phone" v-model="form.tel" placeholder="Телефон">
                 </span>
-                <button class="form-section__button">{{ form_button }}</button>
+                <button class="form-section__button">
+                    {{ form_button }}
+                </button>
             </form>
         </div>
     </section>
 
-<script type="module" src="/templates/main/js/form.js"></script>
+<script type="module" src="/templates/main/components/form/js/index.js"></script>
