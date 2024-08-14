@@ -37,8 +37,8 @@ class CApi
 
     public function getRequest(): array
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $this->request = $_POST;
+        if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+            $this->request = $_GET;
         }
 
         return [
