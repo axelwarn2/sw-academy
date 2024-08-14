@@ -242,6 +242,20 @@ $APPLICATION->setCSS([
     <?=$APPLICATION->showCSS();?>
     <title>Мебель</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const CONFIG = JSON.parse('<?= $APPLICATION->frontedConfig() ?>')
+        const APP = {
+            runComponentAction: async (component, action, payload = null) => {
+                return await fetch(CONFIG.endpoint, {
+                    method: "POST",
+                    body: JSON.stringify({ component, action, payload }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                }).then(response => response.json())
+            }
+        }
+    </script>
 </head>
 <body>
     <?php $APPLICATION->includeHeader($arResultHeader);?>
