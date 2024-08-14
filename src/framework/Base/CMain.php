@@ -86,4 +86,11 @@ class CMain
             }
         }
     }
+
+    public function frontedConfig(): string
+    {
+        return json_encode([
+            'endpoint' => '/api.php',
+        ]);
+    }
 }
